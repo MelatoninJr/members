@@ -1,0 +1,17 @@
+GET http://localhost:3000/sign-up
+
+
+
+
+
+###
+POST http://localhost:3000/sign-up
+Content-Type: application/json
+
+{
+       "username": "Melatonin",
+       "firstname": "Dillon",
+       "lastname": "M",
+       "email": "google@gmail.com",
+       "password": "123"
+}
