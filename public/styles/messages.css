@@ -1,0 +1,40 @@
+:root {
+    --main-bg-color: #D3756B;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-bg-color);
+  }
+
+  .message-page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-width: 50vw;
+  }
+
+  .message-container {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    min-width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2rem;
+  }
+
+  .message-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

@@ -46,7 +46,7 @@ router.post('/', [
         if (emailExists) {
             return res.status(400).json({ errors: [{ msg: 'Email already in use' }] });
         }
-        bcrypt.hash("somePassword", 10, async (err, hashedPassword) => {
+        bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
             // if err, do something
             if(err) {
                 return next(err)

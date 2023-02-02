@@ -15,3 +15,21 @@ Content-Type: application/json
        "email": "google@gmail.com",
        "password": "123"
 }
+
+###
+
+POST http://localhost:3000/messages 
+Content-Type: application/json
+
+{
+    "title": "first",
+    "message": "Hello World",
+    "userid": "63dad9603e0bfb4458f5a406"
+}
+
+
+###
+
+PATCH http://localhost:3000/users/63dad9d64459531893d22a3b 
+Content-Type: application/json
+

@@ -14,6 +14,8 @@ var cors = require('cors')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json())
+app.use(bodyParser.json());
+
 
 mongoose.set('strictQuery', false);
 mongoose.connect('mongodb+srv://admin:admin@cluster0.mstcgxc.mongodb.net/members?retryWrites=true&w=majority', { useUnifiedTopology: true, useNewUrlParser: true });
@@ -23,6 +25,7 @@ db.once('open', () => console.log('Connected to Mongo'))
 
 app.set("views", __dirname);
 app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
     res.locals.currentUser = req.user;
@@ -30,26 +33,24 @@ app.use(function(req, res, next) {
   });
 
   passport.use(
-    new LocalStrategy((username, password, done) => {
-      User.findOne({ username: username }, (err, user) => {
-        if (err) { 
-          return done(err);
+    new LocalStrategy(async (username, password, done) => {
+        try {
+            const user = await User.findOne({ username: username });
+            if (!user) {
+                return done(null, false, { message: "Incorrect username" });
+            }
+            const passwordMatch = await bcrypt.compare(password, user.password);
+            if (passwordMatch) {
+                return done(null, user);
+            } else {
+                return done(null, false, { message: "Incorrect password" });
+            }
+        } catch (error) {
+            return done(error);
         }
-        if (!user) {
-          return done(null, false, { message: "Incorrect username" });
-        }
-        bcrypt.compare(password, user.password, (err, res) => {
-          if (res) {
-            // passwords match! log user in
-            return done(null, user)
-          } else {
-            // passwords do not match!
-            return done(null, false, { message: "Incorrect password" })
-          }
-        })
-      });
     })
-  );
+);
+
 
 
 
@@ -73,14 +74,19 @@ app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 app.use(express.urlencoded({ extended: false }));
 
 const signUpRouter = require('./routes/sign-up')
 const loginRouter = require('./routes/login')
+const messageRouter = require('./routes/messages')
+const userRouter = require('./routes/users')
+app.get('/', function(req, res) {
+    res.redirect('/login')
+})
 app.use("/sign-up", signUpRouter)
 app.use('/login', loginRouter)
-
+app.use('/messages', messageRouter)
+app.use('/users', userRouter)
 
 app.listen(3000, ()=> {
     console.log('Listening on port 3000')
