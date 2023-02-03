@@ -33,10 +33,14 @@
                 <input type="password" id="password" name="password" required />
               </div>
               <div class="login-submit-container">
-                <button type="submit">Login</button>
+                <button type="submit">Login</button>            </form>
+                <form action="/login" method="post" >
+                    <input type="hidden" name="username" value="Demo">
+                    <input type="hidden" name="password" value="0000">
+                        <button type="submit">Demo</button>
+                  </form>
               </div>
 
-            </form>
             <div class="sign-up-link">
               <p>Don't have an account? <a href="/sign-up" class="click-here">Click here</a> to sign up.</p>
             </div>

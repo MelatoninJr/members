@@ -9,7 +9,11 @@
   <body>
     <nav>
         <ul>
-          <li><a href="/login">Login</a></li>
+            <% if (user) { %>
+                <li><a href="/logout" >Logout</a></li>
+              <% } else { %>
+                <li><a href="/login">Login</a></li>
+              <% } %>              
           <li><a href="/sign-up">Sign-Up</a></li>
           <li><a href="/messages">Messages</a></li>
         </ul>

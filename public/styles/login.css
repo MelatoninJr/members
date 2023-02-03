@@ -81,7 +81,7 @@
     display: flex;
     margin-top: 1rem;
     margin-bottom: 1rem;
-
+    gap: 1rem;
   }
  
 
@@ -95,4 +95,7 @@
 
 .click-here {
     color: black;
+}
+.login-demo-container {
+    min-width: 100%;
 }

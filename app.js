@@ -81,6 +81,7 @@ const signUpRouter = require('./routes/sign-up')
 const loginRouter = require('./routes/login')
 const messageRouter = require('./routes/messages')
 const userRouter = require('./routes/users')
+const logoutRouter = require('./routes/logout')
 app.get('/', function(req, res) {
     res.redirect('/login')
 })
@@ -88,8 +89,9 @@ app.use("/sign-up", signUpRouter)
 app.use('/login', loginRouter)
 app.use('/messages', messageRouter)
 app.use('/users', userRouter)
+app.use('/logout', logoutRouter)
 
-app.listen(process.env.PORT, ()=> {
+app.listen(3000, ()=> {
     console.log('Listening on port 3000')
 })
 
