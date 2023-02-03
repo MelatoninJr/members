@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 app.use(express.json());
 const path = require("path");
-const session = require("express-session");
+var session = require('cookie-session');
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const mongoose = require("mongoose");
