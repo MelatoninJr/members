@@ -167,3 +167,11 @@ textarea {
 .update-button-container > button {
     min-width: fit-content;
 }
+
+
+@media (max-width: 900px) {
+    .message-page-container {
+        min-width: 100vw;
+
+    }
+}
