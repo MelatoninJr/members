@@ -175,6 +175,18 @@ textarea {
 @media (max-width: 900px) {
     .message-page-container {
         min-width: 100vw;
+        padding-left: 20px;
+        padding-right: 20px;
 
     }
+    .message-title,
+    .message-author,
+    .message-content,
+    .message-date {
+        padding-right: 2rem;
+    }
+}
+
+@media (max-width: 500px) {
+
 }

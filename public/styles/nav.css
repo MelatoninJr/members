@@ -45,3 +45,12 @@ nav {
     -webkit-transform: scale(1.01);
     transform: scale(1.01);
   }
+
+
+  @media (max-width: 900px) {
+    nav ul {
+        padding-right: 0;
+        justify-content: center;
+    }
+  }
+
