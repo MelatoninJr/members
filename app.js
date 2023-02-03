@@ -11,7 +11,7 @@ const User = require('./schema/user')
 const bcrypt = require('bcryptjs')
 require('dotenv').config()
 var cors = require('cors')
-
+process.NODE_ENV = 'production'
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json())
