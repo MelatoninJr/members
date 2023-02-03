@@ -25,7 +25,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app",
-    "build": "node app"
+    "build": "building"
   },
   "repository": {
     "type": "git",
