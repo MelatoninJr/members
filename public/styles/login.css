@@ -16,6 +16,8 @@
     flex-direction: column;
     align-items: center;
     max-width: 100vw;
+    overflow: hidden;
+    max-width: 100vw;
   }
   .blob {
     position: absolute;
@@ -26,7 +28,6 @@
     z-index: -1;
     animation: move 10s ease-in-out infinite;
     transform-origin: 50% 50%;
-    
   }
 
   .blob > svg {
@@ -66,6 +67,8 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    overflow: hidden;
+    max-width: 100vw;
   }
   .login-form {
     min-width: 100%;
@@ -98,4 +101,13 @@
 }
 .login-demo-container {
     min-width: 100%;
+}
+
+@media (max-width: 900px) {
+    .login-container {
+        min-height: 70vh;
+        max-width: none;
+        min-width: 80vw;
+        
+    }
 }

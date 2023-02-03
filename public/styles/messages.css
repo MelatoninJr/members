@@ -22,13 +22,15 @@
     justify-content: center;
     align-items: center;
     background-color: white;
+    
   }
 
   .message-page-container {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     min-width: 50vw;
+    flex-grow: 1;
+    
   }
 
   .message-container {
