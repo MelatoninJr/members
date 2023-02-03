@@ -101,7 +101,7 @@
               <% messages.forEach(function(message) { %>
                 <div class="message-container">
                   <h1 class="message-title"><%= message.title %></h1>
-                  <h3 class="message-author">User: <%= user.username %></h3>
+                  <h3 class="message-author">User: <%= message.userid %></h3>
                   <p class="message-content"><%= message.message %></p>
                   <h6 class="message-date"><%= message.time %></h6>
                   <% if (user.membership === 'admin') { %>
