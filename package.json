@@ -23,9 +23,10 @@
   },
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app",
-    "build": "building"
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "build": "NODE_ENV=production node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
