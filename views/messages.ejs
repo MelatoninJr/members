@@ -3,8 +3,17 @@
   <head>
     <title>EJS Mongoose Collection Example</title>
     <link href="/styles/messages.css" rel="stylesheet" type="text/css">
+    <link href="/styles/nav.css" rel="stylesheet" type="text/css">
+
   </head>
   <body>
+    <nav>
+        <ul>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/sign-up">Sign-Up</a></li>
+          <li><a href="/messages">Messages</a></li>
+        </ul>
+      </nav>
     <% if (!user) { %>
         <div class="message-page-container">
             <h1 class="message-header">Messages</h1>
@@ -21,8 +30,9 @@
             <form id="update-form">
                 <input type="hidden" name="member" value="club">
               </form>
-              
-              <button type="button" onclick="submitForm()">Update Member</button>
+              <div class="update-button-container">
+                <button type="button" onclick="submitForm()">Join The Club</button>
+              </div>
               
               <script>
                 async function submitForm() {
@@ -55,7 +65,9 @@
                 <form id="upgrade-form">
                   <input type="hidden" name="membership" value="admin">
                 </form>
-                <button type="button" onclick="submitUpgradeForm()">Upgrade to Admin</button>
+                <div class="update-button-container">
+                    <button type="button" onclick="submitUpgradeForm()">Upgrade to Admin</button>
+                </div>
               
                 <script>
                   async function submitUpgradeForm() {
@@ -71,27 +83,29 @@
                   }
                 </script>
               <% } %>
-              
-            <form action="/messages" method="post">
-                <div>
-                  <label for="title">Title:</label>
-                  <input type="text" id="title" name="title">
-                </div>
-                <div>
-                  <label for="message">Message:</label>
-                  <textarea id="message" name="message"></textarea>
-                </div>
-                <button type="submit">Submit</button>
-              </form>
+              <div class="new-message-container">
+                <form action="/messages" method="post" class="mesage-form">
+                    <div class="input-message-container">
+                      <label for="title">Title:</label>
+                      <input type="text" id="title" name="title">
+                      <label for="message">Message:</label>
+                      <input type="text" id="message" name="message" class="message">
+                    </div>
+                    <div class="submit-message-container">
+                        <button type="submit">Submit</button>
+                    </div>
+                  </form>
+              </div>
+
               
               <% messages.forEach(function(message) { %>
                 <div class="message-container">
                   <h1 class="message-title"><%= message.title %></h1>
-                  <h3 class="message-author"><%= user.username %></h3>
+                  <h3 class="message-author">User: <%= user.username %></h3>
                   <p class="message-content"><%= message.message %></p>
                   <h6 class="message-date"><%= message.time %></h6>
                   <% if (user.membership === 'admin') { %>
-                    <button onclick="deleteMessage('<%= message._id %>')">Delete</button>
+                    <button onclick="deleteMessage('<%= message._id %>')" class="delete-button">Delete</button>
 
                   <% } %>
                 </div>

@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser")
 const User = require('./schema/user')
 const bcrypt = require('bcryptjs')
+require('dotenv').config()
 var cors = require('cors')
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,7 +19,7 @@ app.use(bodyParser.json());
 
 
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb+srv://admin:admin@cluster0.mstcgxc.mongodb.net/members?retryWrites=true&w=majority', { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE_URL, { useUnifiedTopology: true, useNewUrlParser: true });
 const db = mongoose.connection
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('Connected to Mongo'))

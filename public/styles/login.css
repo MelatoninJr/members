@@ -6,25 +6,93 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "JetBrains Mono",monospace;
+
   }
 
   body {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background-color: var(--main-bg-color);
-
+    max-width: 100vw;
   }
+  .blob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    fill: lightblue;
+    width: 50vmax;
+    z-index: -1;
+    animation: move 10s ease-in-out infinite;
+    transform-origin: 50% 50%;
+    
+  }
+
+  .blob > svg {
+    z-index: -1;
+  }
+  
 
   .login-container {
     min-height: 24rem;
     min-width: 24rem;
+    max-width: 24rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: #A75D5D;
+    justify-content: space-around;
     border-radius: 5px;
-    color: white;
+    color: black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;    
+    z-index: 99;
+    padding: 2rem;
+    
   }
+
+
+  @keyframes move {
+    0%   { transform: scale(1)   translate(10px, -30px); }
+    38%  { transform: scale(0.8, 1) translate(80vw, 30vh) rotate(160deg); }
+    40%  { transform: scale(0.8, 1) translate(80vw, 30vh) rotate(160deg); }
+    78%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+    80%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+    100% { transform: scale(1)   translate(10px, -30px); }
+  }
+
+  .login-other-container {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .login-form {
+    min-width: 100%;
+  }
+
+  .login-input-container {
+    display: flex;
+    flex-direction: column;
+    min-width: inherit;
+    justify-content: center;
+  }
+  .login-submit-container {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+  }
+ 
+
+  .login-container > * {
+  }
+
+  input[type='text'] {
+    all: unset;
+    border-bottom: 1px solid black;
+}
+
+.click-here {
+    color: black;
+}
