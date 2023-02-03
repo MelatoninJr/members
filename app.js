@@ -91,7 +91,7 @@ app.use('/messages', messageRouter)
 app.use('/users', userRouter)
 app.use('/logout', logoutRouter)
 
-app.listen(proccess.env.PORT, ()=> {
+app.listen(process.env.PORT, ()=> {
     console.log('Listening on port 3000')
 })
 
