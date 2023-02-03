@@ -89,7 +89,7 @@ app.use('/login', loginRouter)
 app.use('/messages', messageRouter)
 app.use('/users', userRouter)
 
-app.listen($PORT, ()=> {
+app.listen(process.env.PORT, ()=> {
     console.log('Listening on port 3000')
 })
 
